@@ -22,7 +22,7 @@ export const getAllContacts = async ({
   }
 
   const [contactsCount, contacts] = await Promise.all([
-    Contact.find(filter).countDocuments(),
+    contactsQuery.clone().countDocuments(),
     contactsQuery
       .skip(skip)
       .limit(limit)
