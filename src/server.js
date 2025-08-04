@@ -6,7 +6,9 @@ import router from './routers/index.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 import swaggerUi from 'swagger-ui-express';
+// import swaggerDocument from '../docs/swagger.json' assert { type: 'json' };
 import swaggerDocument from '../docs/swagger.json' assert { type: 'json' };
+
 
 export default function setupServer() {
   const app = express();
