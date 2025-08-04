@@ -1,0 +1,46 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Contacts API
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  description: REST API for managing personal, home, and work contacts. 
+tags:
+  - name: Contacts
+    description: Everything about user contacts
+servers:
+  - url: http://localhost:3000
+  - url: #посилання на задеплоєний сайт
+paths:
+  /contacts/{id}:
+    get:
+      $ref: ../swagger/paths/contacts/{id}/get.yaml
+    patch:
+      $ref: ../swagger/paths/contacts/{id}/patch.yaml
+    delete:
+      $ref: ../swagger/paths/contacts/{id}/delete.yaml
+  /contacts:
+    get:
+      $ref: ../swagger/paths/contacts/get.yaml
+    post:
+      $ref: ../swagger/paths/contacts/post.yaml
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    contact:
+      $ref: ../swagger/components/schemas/contact.yaml
+  responses:
+    UnauthorizedError:
+      $ref: ../swagger/components/responses/401.yaml
+    NotFoundError:
+      $ref: ../swagger/components/responses/404.yaml
+    ForbiddenError:
+      $ref: ../swagger/components/responses/403.yaml
+    BadRequestError:
+      $ref: ../swagger/components/responses/400.yaml
+    InternalServerError:
+      $ref: ../swagger/components/responses/500.yaml

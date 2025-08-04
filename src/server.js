@@ -5,6 +5,8 @@ import cors from 'cors';
 import router from './routers/index.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 import { errorHandler } from './middlewares/errorHandler.js';
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocument from '../docs/swagger.json' assert { type: 'json' };
 
 export default function setupServer() {
   const app = express();
@@ -13,6 +15,9 @@ export default function setupServer() {
   app.use(express.json());
   app.use(cookieParser());
   app.use(pino({ transport: { target: 'pino-pretty' } }));
+
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
   app.use(router);
 
   app.use('*', notFoundHandler);
@@ -24,4 +29,3 @@ export default function setupServer() {
     console.log(`Server is running on port ${PORT}`);
   });
 }
-
