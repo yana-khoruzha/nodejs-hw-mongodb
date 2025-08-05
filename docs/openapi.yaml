@@ -5,13 +5,13 @@ info:
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-  description: REST API for managing personal, home, and work contacts. 
+  description: REST API for managing personal, home, and work contacts.
 tags:
   - name: Contacts
     description: Everything about user contacts
 servers:
   - url: http://localhost:3000
-  - url: #посилання на задеплоєний сайт
+  - url: https://nodejs-hw-mongodb-na3i.onrender.com
 paths:
   /contacts/{id}:
     get:

@@ -7,14 +7,14 @@
       "name": "Apache 2.0",
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "description": "API for contacts book"
+    "description": "REST API for managing personal, home, and work contacts."
   },
   "servers": [
     {
       "url": "http://localhost:3000"
     },
     {
-      "url": null
+      "url": "https://nodejs-hw-mongodb-na3i.onrender.com"
     }
   ],
   "tags": [
@@ -191,6 +191,9 @@
           "401": {
             "$ref": "#/components/responses/401"
           },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
           "404": {
             "$ref": "#/components/responses/404"
           },
@@ -249,6 +252,9 @@
           },
           "401": {
             "$ref": "#/components/responses/401"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
           },
           "404": {
             "$ref": "#/components/responses/404"
