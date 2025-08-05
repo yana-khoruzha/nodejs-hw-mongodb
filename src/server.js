@@ -7,7 +7,8 @@ import { notFoundHandler } from './middlewares/notFoundHandler.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 import swaggerUi from 'swagger-ui-express';
 // import swaggerDocument from '../docs/swagger.json' assert { type: 'json' };
-import swaggerDocument from '../docs/swagger.json' assert { type: 'json' };
+import fs from 'fs';
+const swaggerDocument = JSON.parse(fs.readFileSync(new URL('../docs/swagger.json', import.meta.url)));
 
 
 export default function setupServer() {
