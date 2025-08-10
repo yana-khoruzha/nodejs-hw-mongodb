@@ -14,7 +14,7 @@ parameters:
       type: integer
       example: 1
 
-  - name: limit
+  - name: perPage
     in: query
     description: Number of contacts per page
     required: false
@@ -46,10 +46,7 @@ responses:
       application/json:
         schema:
           type: object
-          required:
-            - status
-            - message
-            - data
+          required: [status, message, data]
           properties:
             status:
               type: integer
@@ -58,9 +55,40 @@ responses:
               type: string
               example: Successfully found contacts!
             data:
-              type: array
-              items:
-                $ref: ../../components/schemas/contact.yaml
+              type: object
+              required:
+                [
+                  data,
+                  page,
+                  perPage,
+                  totalItems,
+                  totalPages,
+                  hasNextPage,
+                  hasPreviousPage,
+                ]
+              properties:
+                data:
+                  type: array
+                  items:
+                    $ref: ../../components/schemas/contact.yaml
+                page:
+                  type: integer
+                  example: 1
+                perPage:
+                  type: integer
+                  example: 10
+                totalItems:
+                  type: integer
+                  example: 2
+                totalPages:
+                  type: integer
+                  example: 1
+                hasNextPage:
+                  type: boolean
+                  example: false
+                hasPreviousPage:
+                  type: boolean
+                  example: false
   '401':
     $ref: ../../components/responses/401.yaml
   '403':
