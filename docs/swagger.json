@@ -302,6 +302,34 @@
               ],
               "example": "work"
             }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Field to sort contacts by",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "_id",
+                "name"
+              ],
+              "example": "name"
+            }
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "description": "Sorting order: ascending or descending",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "example": "asc"
+            }
           }
         ],
         "responses": {
